@@ -14,6 +14,7 @@ import com.pusher.pushnotifications.PushNotifications;
 import com.pusher.pushnotifications.SubscriptionsChangedListener;
 import com.pusher.pushnotifications.PushNotificationReceivedListener;
 
+import java.util.Map;
 //
 // TODO: verify the android manifest after https://docs.pusher.com/beams/reference/android
 /**
