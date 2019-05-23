@@ -14,6 +14,7 @@ import com.pusher.pushnotifications.PushNotifications;
 import com.pusher.pushnotifications.SubscriptionsChangedListener;
 import com.pusher.pushnotifications.PushNotificationReceivedListener;
 
+import java.util.Map;
 //
 // TODO: verify the android manifest after https://docs.pusher.com/beams/reference/android
 /**
@@ -68,7 +69,15 @@ public class PusherWrapper {
                     map.putString("click_action", notification.getClickAction());
                     map.putString("icon", notification.getIcon());
                     map.putString("color", notification.getColor());
-                    //map.putString("link", notification.getLink());
+
+                    Map<String, String> data = remoteMessage.getData();
+                    WritableMap payload = Arguments.createMap();
+
+                    for(Map.Entry<String,String> entry : data.entrySet()) {
+                        payload.putString(entry.getKey(), entry.getValue());
+                    }
+
+                    map.putMap("payload", payload);
 
                     context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit(notificationEvent, map);
                     //System.out.print(remoteMessage.toString());
