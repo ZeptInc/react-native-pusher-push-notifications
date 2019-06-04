@@ -64,7 +64,7 @@ instructions (summarized below):
 
 ```json
 "dependencies": {
-    "react-native-pusher-push-notifications": "git+http://git@github.com/ZeptInc/react-native-pusher-push-notifications#2.1.0"
+    "react-native-pusher-push-notifications": "git+http://git@github.com/ZeptInc/react-native-pusher-push-notifications#v.2.4.0-zept-master"
 }
 ```
 
@@ -78,7 +78,14 @@ buildscript {
         // Add this line
         classpath 'com.google.gms:google-services:4.0.1'
     }
-}    
+} 
+allprojects {
+    // ...
+    repositories {
+        // ...
+        maven { url "https://jitpack.io" }
+    }
+
 ```
 
 3. Add this to `android/app/build.gradle`:
@@ -87,8 +94,8 @@ buildscript {
 dependencies {
    compile project(':react-native-pusher-push-notifications')
    // ...
-   implementation 'com.google.firebase:firebase-core:16.0.1'
-   implementation 'com.pusher:push-notifications-android:1.4.0'
+   implementation 'com.google.firebase:firebase-core:16.0.8
+   implementation 'com.github.ZeptInc:push-notifications-android:1.5.0-alpha'
 }
 
 // in the bottom of the file
