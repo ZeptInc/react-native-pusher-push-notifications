@@ -14,7 +14,7 @@ import com.facebook.react.bridge.Callback;
 public class RNPusherPushNotificationsModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
-  private PusherWrapper pusher;
+  protected PusherWrapper pusher;
 
   public RNPusherPushNotificationsModule(ReactApplicationContext reactContext) {
       super(reactContext);
